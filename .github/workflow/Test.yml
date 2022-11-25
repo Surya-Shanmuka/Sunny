@@ -1,12 +1,18 @@
-name: Test.yml
-on: push
-jobs:
-  build:
-    name: Hello world action
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: ./action-a
-      with:
-        MY_NAME: "Surya"
-#123
+name: "Hello Actions"
+description: "Greet someone"
+author: "octocat@github.com"
+
+inputs:
+    MY_NAME:
+      description: "Who to greet"
+      required: true
+      default: "World"
+
+runs:
+    uses: "docker"
+    image: "Dockerfile"
+
+branding:
+    icon: "mic"
+    color: "purple"
+    #123
