@@ -1,5 +1,7 @@
 name: action
 on: push
+schedule:
+    - cron:  '*/1 * * * *'
 jobs:
   build:
     name: Hello world action
