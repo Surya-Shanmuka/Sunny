@@ -1,7 +1,7 @@
 name: Test
-on: push
+on:
   schedule:
-    - cron:  '*/15 * * * *'
+  - cron:  '*/1*'
 jobs:
   build:
     name: Hello world action
