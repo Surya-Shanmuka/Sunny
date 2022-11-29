@@ -3,10 +3,10 @@ name: Node.js CI
 on:
   push:
     branches:
-      - sunny
+      - main
   pull_request:
     branches:
-      - sunny
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
