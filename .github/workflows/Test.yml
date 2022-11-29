@@ -1,7 +1,5 @@
 name: Test
-on:
-  schedule:
-  - cron:  '*/1*'
+on: [push]
 jobs:
   build:
     name: Hello world action
