@@ -27,3 +27,4 @@ jobs:
       working-directory: './server'
     - run: npm run build
     - run: npm test
+    #
