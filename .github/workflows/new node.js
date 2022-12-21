@@ -1,32 +1,27 @@
-name: Main
+name: Node.js CI
+
 on:
-
   push:
-
     branches: [ main ]
 
-  workflow_dispatch:
-
 jobs:
-
   build:
 
-    runs-on: ubuntu-latest
-
-
+    runs-on: self-hosted
+        
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js
-
-        uses: actions/setup-node@v2
-
-        with:
-
-          node-version: "14.x"
-
-      - name: Install dependencies
-
-        run: npm install
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+      working-directory: './server'
+    - run: npm run start
+      working-directory: './server'
